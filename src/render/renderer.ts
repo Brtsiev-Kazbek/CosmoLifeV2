@@ -66,6 +66,11 @@ export class Renderer {
     });
     this.gl.autoClear = false;
     this.gl.setClearColor(0x02030a, 1);
+    // three.js resets render statistics at the start of every `render()` call, so with
+    // two passes per frame the counters would only ever describe the near one — which
+    // reads as "0 triangles" for a frame that is drawing a planet perfectly well. The
+    // stats are the proof that a draw path executed, so they have to span the frame.
+    this.gl.info.autoReset = false;
 
     this.nearCamera = new THREE.PerspectiveCamera(70, 1, NEAR_PLANE_M, NEAR_RANGE_M);
     // Far plane covers 1e12 m once divided by FAR_SCALE.
@@ -159,6 +164,7 @@ export class Renderer {
 
   render(): void {
     this.place();
+    this.gl.info.reset();
     this.gl.clear(true, true, true);
 
     // Far first, then the depth buffer is thrown away: near geometry always wins, which

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CosmoLife</title>
+    <!-- Inline SVG data URI, not a file: the project ships zero binary assets, and a
+         missing favicon.ico is a real 404 on every load. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%236fc0ff'/%3E%3Cellipse cx='16' cy='16' rx='15' ry='4' fill='none' stroke='%23cfe6ff' stroke-width='1.6'/%3E%3C/svg%3E"
+    />
+    <style>
+      /* No font files: the whole project ships zero assets, so the interface uses the
+         platform's own monospace stack. */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #02030a;
+        color: #cfe6ff;
+        font-family: 'Menlo', 'DejaVu Sans Mono', monospace;
+      }
+      #app { position: relative; width: 100vw; height: 100vh; }
+      canvas { display: block; width: 100%; height: 100%; }
+      #hint {
+        position: absolute;
+        left: 50%;
+        bottom: 40px;
+        transform: translateX(-50%);
+        font-size: 13px;
+        opacity: 0.55;
+        pointer-events: none;
+        transition: opacity 300ms ease;
+      }
+      #hint.hidden { opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="view"></canvas>
+      <cl-hud id="hud"></cl-hud>
+      <div id="hint">Щёлкните, чтобы взять управление · W/S тяга · A/D крен · J сверхсвет · T цель · X автопилот</div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
