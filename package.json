@@ -1,0 +1,31 @@
+{
+  "name": "cosmolife",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "CosmoLife - a seed-driven open-world space sim. No assets, only source.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "bench": "vitest bench --run",
+    "audit:locale": "tsx tools/auditLocale.ts"
+  },
+  "dependencies": {
+    "gl-matrix": "^3.4.4",
+    "i18next": "^25.7.0",
+    "idb-keyval": "^6.2.2",
+    "lit": "^3.3.3",
+    "three": "^0.181.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/three": "^0.181.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4",
+    "vitest": "^3.2.4"
+  }
+}
