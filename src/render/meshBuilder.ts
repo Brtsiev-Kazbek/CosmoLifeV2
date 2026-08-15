@@ -188,6 +188,6 @@ export function emptyMesh(): MeshData {
 }
 
 /** The three buffers, for `postMessage` transfer lists. */
-export function meshTransferables(mesh: MeshData): ArrayBuffer[] {
-  return [mesh.positions.buffer, mesh.normals.buffer, mesh.colors.buffer];
+export function meshTransferables(mesh: MeshData): Transferable[] {
+  return [mesh.positions.buffer, mesh.normals.buffer, mesh.colors.buffer] as Transferable[];
 }
